@@ -1,3 +1,4 @@
+import { AgendaProvider } from "@/context/AgendaContext";
 import {
   Inter_300Light,
   Inter_400Regular,
@@ -19,12 +20,14 @@ export default function RootLayout() {
   if (!carregou) return null;
 
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: { backgroundColor: "#0D1017" },
-        headerTintColor: "#FFFFFF",
-        contentStyle: { backgroundColor: "#0D1017" },
-      }}
-    />
+    <AgendaProvider>
+      <Stack
+        screenOptions={{
+          headerStyle: { backgroundColor: "#0D1017" },
+          headerTintColor: "#FFFFFF",
+          contentStyle: { backgroundColor: "#0D1017" },
+        }}
+      />
+    </AgendaProvider>
   );
 }

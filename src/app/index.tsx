@@ -3,7 +3,7 @@ import CardAgendamento from "@/components/CardAgendamento";
 import { cores } from "@/constants/cores";
 import { fontes } from "@/constants/fontes";
 import { raio } from "@/constants/tamanhos";
-import { agendamentos } from "@/data/agendamentos";
+import { useAgenda } from "@/context/AgendaContext";
 import { proximosAgendamentos } from "@/utils/proximosAgendamentos";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
@@ -13,6 +13,7 @@ import { StyleSheet, Text, View } from "react-native";
 const GRADIENTE = [cores.destaque2, cores.destaque] as const;
 
 export default function Inicio() {
+  const { agendamentos } = useAgenda();
   const proximos = proximosAgendamentos(agendamentos, 3);
 
   return (

@@ -1,11 +1,12 @@
 import CardAgendamento from "@/components/CardAgendamento";
 import { cores } from "@/constants/cores";
 import { fontes } from "@/constants/fontes";
-import { agendamentos } from "@/data/agendamentos";
+import { useAgenda } from "@/context/AgendaContext";
 import { router, type Href } from "expo-router";
 import { FlatList, Pressable, StyleSheet, Text } from "react-native";
 
 export default function ListaAgendamentos() {
+  const { agendamentos } = useAgenda();
   return (
     <FlatList
       style={estilos.container}
