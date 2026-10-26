@@ -27,7 +27,18 @@ export default function RootLayout() {
           headerTintColor: "#FFFFFF",
           contentStyle: { backgroundColor: "#0D1017" },
         }}
-      />
+      >
+        <Stack.Screen name="index" options={{ title: "Agenda Barbearia" }} />
+        <Stack.Screen name="agendamentos/index" options={{ title: "Agenda" }} />
+        <Stack.Screen
+          name="agendamentos/novo"
+          options={{ title: "Novo agendamento" }}
+        />
+        <Stack.Screen
+          name="agendamentos/[id]"
+          options={{ title: "Detalhes" }}
+        />
+      </Stack>
     </AgendaProvider>
   );
 }

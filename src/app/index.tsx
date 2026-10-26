@@ -123,4 +123,10 @@ const estilos = StyleSheet.create({
     marginTop: "auto",
     marginBottom: 24,
   },
+  frase: {
+    fontFamily: fontes.normal,
+    fontSize: 16,
+    color: cores.textoSecundario,
+    alignSelf: "flex-start",
+  },
 });

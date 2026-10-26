@@ -1,6 +1,6 @@
 import {
-    agendamentos as agendamentosIniciais,
-    type Agendamento,
+  agendamentos as agendamentosIniciais,
+  type Agendamento,
 } from "@/data/agendamentos";
 import { servicos } from "@/data/servicos";
 import { createContext, useContext, useState, type ReactNode } from "react";
@@ -15,6 +15,7 @@ type DadosNovos = {
 type ContextoAgenda = {
   agendamentos: Agendamento[];
   adicionar: (dados: DadosNovos) => void;
+  alternarStatus: (id: number) => void;
 };
 
 const AgendaContext = createContext<ContextoAgenda | null>(null);
@@ -41,9 +42,14 @@ export function AgendaProvider({ children }: { children: ReactNode }) {
       return [...atual, novo];
     });
   }
+  function alternarStatus(id: number) {
+    setAgendamentos((atual) =>
+      atual.map((a) => (a.id === id ? { ...a, confirmado: !a.confirmado } : a)),
+    );
+  }
 
   return (
-    <AgendaContext.Provider value={{ agendamentos, adicionar }}>
+    <AgendaContext.Provider value={{ agendamentos, adicionar, alternarStatus }}>
       {children}
     </AgendaContext.Provider>
   );
